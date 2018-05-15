@@ -14,6 +14,7 @@ Telegram bot inspired by Anime
 
 ## Technologies
 
+* [Yarn](https://yarnpkg.com/lang/en/)
 * [Koa.js](https://koajs.com/)
 * [Telegraf](http://telegraf.js.org/)
 
@@ -28,12 +29,12 @@ The following environment variables should be exported before running:
 
 Start application:
 ```
-npm start
+yarn start
 ```
 
 Start application in debug mode:
 ```
-npm debug
+yarn debug
 ```
 
 ## Telegram bot instance
