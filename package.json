@@ -2,8 +2,9 @@
   "name": "lionfish",
   "version": "1.0.0",
   "description": "Telegram bot inspired by Anime",
-  "main": "src/index.mjs",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,12 @@
   "homepage": "https://github.com/IlonaMenkui/lionfish#readme",
   "engines": {
     "node": "10.1.0"
+  },
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "telegraf": "^3.21.1"
   }
 }
