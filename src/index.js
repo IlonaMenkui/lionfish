@@ -24,6 +24,6 @@ server.use(logger())
 server.use(bodyParser())
 server.use(telegramRouter.middleware())
 
-server.listen(8080, () => {
+server.listen(process.env.LF_SERVER_PORT || 8080, () => {
     console.log(`Lionfish application started!`)
 })
