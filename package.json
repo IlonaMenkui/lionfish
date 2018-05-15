@@ -1,14 +1,14 @@
 {
   "name": "lionfish",
   "version": "1.0.0",
-  "description": "Telegram bot inspired by anime ",
+  "description": "Telegram bot inspired by Anime",
   "main": "src/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/IlonaMenkui/lionfish.git%22.git"
+    "url": "git+ssh://git@github.com/IlonaMenkui/lionfish.git"
   },
   "keywords": [
     "telegram",
@@ -17,7 +17,7 @@
   "author": "Ilona Menkui",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IlonaMenkui/lionfish.git%22/issues"
+    "url": "https://github.com/IlonaMenkui/lionfish/issues"
   },
-  "homepage": "https://github.com/IlonaMenkui/lionfish.git%22#readme"
+  "homepage": "https://github.com/IlonaMenkui/lionfish#readme"
 }
