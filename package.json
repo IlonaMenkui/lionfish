@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/IlonaMenkui/lionfish/issues"
   },
-  "homepage": "https://github.com/IlonaMenkui/lionfish#readme"
+  "homepage": "https://github.com/IlonaMenkui/lionfish#readme",
+  "engines": {
+    "node": "10.1.0"
+  }
 }
