@@ -31,6 +31,6 @@
     "koa-bodyparser": "^4.2.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "telegraf": "3.14.0"
+    "telegraf": "^3.21.2"
   }
 }

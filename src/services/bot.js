@@ -12,7 +12,7 @@ module.exports = class Bot {
 
     init() {
         this.telegraf.command('ping', async ctx => {
-            ctx.reply('pong')
+            return ctx.reply('pong')
         })
 
         this.telegraf.on('inline_query', async ctx => {
@@ -28,7 +28,7 @@ module.exports = class Bot {
                         message_text: this.api.expandUrl(anime.url)
                     }
                 }))
-            ctx.answerInlineQuery(results, {
+            return ctx.answerInlineQuery(results, {
                 next_offset: page + 1
             })
         })
