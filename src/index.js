@@ -13,7 +13,7 @@ server.context.bot = new Bot({
     webhookUrl: `${process.env.LF_LB_URL}/api/telegram/updates`,
     commands: {},
     dependencies: {
-        api: new Api({ baseUrl: 'https://shikimori.org/' })
+        api: new Api({ baseUrl: 'https://shikimori.org' })
     }
 })
 
