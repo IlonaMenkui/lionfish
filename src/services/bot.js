@@ -4,6 +4,7 @@ module.exports = class Bot {
     constructor({ token, webhookUrl, commands, dependencies: { api, templateEngine } }) {
         this.telegraf = new Telegraf(token)
         this.commands = commands
+        this.api = api
         this.templateEngine = templateEngine
         this.init()
         this.webhook = webhookUrl
@@ -12,6 +13,24 @@ module.exports = class Bot {
     init() {
         this.telegraf.command('ping', async ctx => {
             ctx.reply('pong')
+        })
+
+        this.telegraf.on('inline_query', async ctx => {
+            const limit = 20
+            const page = Number.parseInt(ctx.inlineQuery.offset) || 1
+            const animes = await this.api.findAnimeByName(ctx.inlineQuery.query, { page, limit })
+            const results = animes
+                .map(anime => ({
+                    id: anime.id,
+                    type: 'article',
+                    title: anime.russian,
+                    input_message_content: {
+                        message_text: this.api.expandUrl(anime.url)
+                    }
+                }))
+            ctx.answerInlineQuery(results, {
+                next_offset: page + 1
+            })
         })
     }
 
