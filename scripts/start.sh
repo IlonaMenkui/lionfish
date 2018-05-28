@@ -1,5 +1,10 @@
 #!/bin/bash
 
+SSH_TUNNEL_PREFIX=lionfish
+SSH_TUNNEL_HOST=serveo.net
+SSH_TUNNEL_SOCKET=.lionfish-socket
+
+URL="${SSH_TUNNEL_PREFIX}.${SSH_TUNNEL_HOST}"
 PORT=8080
 
 POSITIONAL=()
@@ -30,14 +35,13 @@ if [ -z "$TOKEN" ]; then
     exit 1
 fi
 
-SSH_TUNNEL_COMMAND="ngrok http $LF_SERVER_PORT"
-OPERATION_TIMEOUT=3
-
-if [ `jobs | grep "$SSH_TUNNEL_COMMAND" | wc -l` -eq 0 ]; then
-    "${SSH_TUNNEL_COMMAND}" &>/dev/null;
+if [ -S $SSH_TUNNEL_SOCKET ]; then
+    echo "Releasing old tunnels..."
+    ssh -S $SSH_TUNNEL_SOCKET -O exit $SSH_TUNNEL_HOST
+    rm -f $SSH_TUNNEL_SOCKET
 fi
 
-URL=`timeout -k 3 $OPERATION_TIMEOUT curl --silent --show-error http://127.0.0.1:4040/api/tunnels | grep -Eoh "http://.*?ngrok.io"`
+ssh -f -N -M -T -S $SSH_TUNNEL_SOCKET -R $SSH_TUNNEL_PREFIX:443:localhost:$PORT $SSH_TUNNEL_HOST
 
 yarn # install dependencies 
 LF_APP_BOT_TOKEN=$TOKEN LF_SERVER_PORT=$PORT LF_LB_URL=$URL yarn start
