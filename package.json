@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/IlonaMenkui/lionfish#readme",
   "engines": {
-    "node": "10.1.0",
-    "yarn": "1.7.0"
+    "node": "^10.2.1",
+    "yarn": "^1.7.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -31,6 +31,6 @@
     "koa-bodyparser": "^4.2.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
-    "telegraf": "^3.21.2"
+    "telegraf": "3.14.0"
   }
 }
