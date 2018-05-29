@@ -7,10 +7,25 @@ module.exports = class Api {
         })
     }
 
-    findAnimeByName(name, options = {}) {
+    find(options = {}) {
         return this.axios
-            .get('/api/animes', { params: { search: name, ...options } })
+            .get('/api/animes', { params: { ...options } })
             .then(res => res.data)
+    }
+
+    findTop15ByYear(year, options = {}) {
+        return this.find({
+            season: year,
+            limit: 15,
+            order: 'popularity',
+            ...options
+        })
+    }
+
+    findAnimeByName(name, options = {}) {
+        return this.find({
+            search: name, ...options
+        })
     }
 
     expandUrl(relativeUrl) {

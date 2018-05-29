@@ -11,7 +11,6 @@ const server = module.exports = new Koa()
 server.context.bot = new Bot({
     token: process.env.LF_APP_BOT_TOKEN,
     webhookUrl: `${process.env.LF_LB_URL}/api/telegram/updates`,
-    commands: {},
     dependencies: {
         api: new Api({ baseUrl: 'https://shikimori.org' })
     }
