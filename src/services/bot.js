@@ -1,8 +1,13 @@
 const Telegraf = require('telegraf')
+const fetch = require('node-fetch')
 
 module.exports = class Bot {
     constructor({ token, webhookUrl, commands, dependencies: { api, templateEngine } }) {
-        this.telegraf = new Telegraf(token)
+        this.telegraf = new Telegraf(token, {
+            telegram: {
+                webhookReply: false
+            }
+        })
         this.commands = commands
         this.api = api
         this.templateEngine = templateEngine

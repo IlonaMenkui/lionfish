@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/node@^10.1.2":
+  version "10.1.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.3.tgz#5c16980936c4e3c83ce64e8ed71fb37bd7aea135"
+
 accepts@^1.2.2:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.5.tgz#eb777df6011723a3b14e8a72c0805c8e86746bd2"
@@ -104,12 +108,6 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-encoding@^0.1.11:
-  version "0.1.12"
-  resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
-  dependencies:
-    iconv-lite "~0.4.13"
-
 error-inject@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/error-inject/-/error-inject-1.0.0.tgz#e2b3d91b54aed672f309d950d154850fa11d4f37"
@@ -158,7 +156,7 @@ humanize-number@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/humanize-number/-/humanize-number-0.0.2.tgz#11c0af6a471643633588588048f1799541489c18"
 
-iconv-lite@0.4.23, iconv-lite@~0.4.13:
+iconv-lite@0.4.23:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
   dependencies:
@@ -179,10 +177,6 @@ is-buffer@^1.1.5:
 is-generator-function@^1.0.3:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/is-generator-function/-/is-generator-function-1.0.7.tgz#d2132e529bb0000a7f80794d4bdf5cd5e5813522"
-
-is-stream@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
 
 isarray@0.0.1:
   version "0.0.1"
@@ -295,12 +289,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-node-fetch@^1.6.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
+node-fetch@^2.0.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
 
 on-finished@^2.1.0:
   version "2.3.0"
@@ -365,13 +356,20 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-telegraf@3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.14.0.tgz#97d0dcea9052c1f59c1596210687e862a75012bd"
+telegraf@^3.21.2:
+  version "3.21.2"
+  resolved "https://registry.yarnpkg.com/telegraf/-/telegraf-3.21.2.tgz#192a79e8990297377bf2bf03085cb4d00a20d9a8"
   dependencies:
+    "@types/node" "^10.1.2"
     debug "^3.0.0"
-    node-fetch "^1.6.3"
+    node-fetch "^2.0.0"
     sandwich-stream "^1.0.0"
+    telegram-typings "^3.6.0"
+    typescript "^2.8.3"
+
+telegram-typings@^3.6.0:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/telegram-typings/-/telegram-typings-3.6.1.tgz#1288d547f8694b61f1c01c2993e295f3114d9e25"
 
 type-is@^1.5.5, type-is@^1.6.14:
   version "1.6.16"
@@ -379,6 +377,10 @@ type-is@^1.5.5, type-is@^1.6.14:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
+
+typescript@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.3.tgz#5d817f9b6f31bb871835f4edf0089f21abe6c170"
 
 unpipe@1.0.0:
   version "1.0.0"
