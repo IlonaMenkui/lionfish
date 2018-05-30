@@ -8,7 +8,7 @@ const { leave } = Stage
 const _ = require('lodash')
 
 module.exports = class Bot {
-    constructor({ token, webhookUrl, dependencies: { api, templateEngine } }) {
+    constructor({ token, webhookUrl, dependencies: { api } }) {
         this.telegraf = new Telegraf(token, {
             telegram: {
                 webhookReply: false
