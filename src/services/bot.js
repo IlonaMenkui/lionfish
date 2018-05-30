@@ -57,7 +57,7 @@ module.exports = class Bot {
             ctx.deleteMessage()
             return ctx.reply(
                 !!anime
-                    ? `[${anime.russian}](${this.api.expandUrl(anime.url)})`
+                    ? `[${anime.russian || anime.name}](${this.api.expandUrl(anime.url)})`
                     : `Ничего не найдено для жанра '${genre.russian}'`,
                 { parse_mode: 'Markdown' }
             )
@@ -83,9 +83,9 @@ module.exports = class Bot {
                 .map(anime => ({
                     id: anime.id,
                     type: 'article',
-                    title: anime.russian,
+                    title: anime.russian || anime.name,
                     input_message_content: {
-                        message_text: `[${anime.russian}](${this.api.expandUrl(anime.url)})`,
+                        message_text: `[${anime.russian || anime.name}](${this.api.expandUrl(anime.url)})`,
                         parse_mode: 'Markdown'
                     }
                 }))
