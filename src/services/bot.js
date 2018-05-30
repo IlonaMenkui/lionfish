@@ -44,18 +44,21 @@ module.exports = class Bot {
             const keys = _
                 .chunk(randomGenres, 3)
                 .map(chunk => chunk
-                    .map(genre => Markup.callbackButton(genre.russian, `genre-${genre.id}`)))
+                    .map(genre => Markup.callbackButton(genre.russian, JSON.stringify({ id: genre.id, russian: genre.russian }))))
             ctx.reply(
                 'Пожалуйста, выберите жанр',
                 Markup.inlineKeyboard(keys).extra()
             )
         })
         randScene.leave(async ctx => {
-            const genreId = ctx.update.callback_query.data.split('-')[1]
-            const anime = await this.api.findRandomByGenre(genreId)
+            const genre = JSON.parse(ctx.update.callback_query.data)
+            const anime = await this.api.findRandomByGenre(genre.id)
+            ctx.answerCbQuery(`Жанр - '${genre.russian}'`)
             ctx.deleteMessage()
             return ctx.reply(
-                `[${anime.russian}](${this.api.expandUrl(anime.url)})`,
+                !!anime
+                    ? `[${anime.russian}](${this.api.expandUrl(anime.url)})`
+                    : `Ничего не найдено для жанра '${genre.russian}'`,
                 { parse_mode: 'Markdown' }
             )
         })
