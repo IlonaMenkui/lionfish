@@ -1,6 +1,7 @@
 #!/bin/bash
 
-SSH_TUNNEL_PREFIX=lionfish
+TIMESTAMP=`date +%s`
+SSH_TUNNEL_PREFIX=lionfish-$TIMESTAMP
 SSH_TUNNEL_HOST=serveo.net
 SSH_TUNNEL_SOCKET=.lionfish-socket
 
